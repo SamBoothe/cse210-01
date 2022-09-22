@@ -3,9 +3,6 @@ Tic-Tac-Toe
 Author - Sam Boothe
 '''
 
-from math import gamma
-
-
 def main():
     player = next_player("")
     game_board = display_game_board()
