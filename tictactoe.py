@@ -5,13 +5,16 @@ Author - Sam Boothe
 
 def main():
     player = next_player("")
-    game_board = display_game_board()
+    game_board = display_board()
     while not (winner(game_board) or draw(game_board)):
         display_game_board(game_board)
         player_move(player, game_board)
         player = next_player(player)
     display_game_board(game_board)
-    print("Good game. Thanks for playing!")
+    if draw(game_board) == False:
+        print("Good game. Thanks for playing!")
+    else:
+        print("Game is a draw! Better luck next time!")
 
 def next_player(current_player):
     if current_player == "" or current_player == "o":
@@ -51,7 +54,6 @@ def display_board():
 def draw(game_board):
     for square in range(9):
         if game_board[square] != "x" and game_board[square] != "o":
-            print("Game is a Draw!")
             return False
     return True
 
